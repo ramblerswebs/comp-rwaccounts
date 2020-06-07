@@ -10,49 +10,98 @@
 // No direct access
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Component\Router\RouterViewConfiguration;
-use Joomla\CMS\Component\Router\RouterView;
-use Joomla\CMS\Component\Router\Rules\StandardRules;
-use Joomla\CMS\Component\Router\Rules\NomenuRules;
-use Joomla\CMS\Component\Router\Rules\MenuRules;
-use \Joomla\CMS\Factory;
+JLoader::registerPrefix('Rw_accounts', JPATH_SITE . '/components/com_rw_accounts/');
 
 /**
  * Class Rw_accountsRouter
  *
+ * @since  3.3
  */
-class Rw_accountsRouter extends RouterView
+class Rw_accountsRouter extends \Joomla\CMS\Component\Router\RouterBase
 {
-	private $noIDs;
-	public function __construct($app = null, $menu = null)
+	/**
+	 * Build method for URLs
+	 * This method is meant to transform the query parameters into a more human
+	 * readable form. It is only executed when SEF mode is switched on.
+	 *
+	 * @param   array  &$query  An array of URL arguments
+	 *
+	 * @return  array  The URL arguments to use to assemble the subsequent URL.
+	 *
+	 * @since   3.3
+	 */
+	public function build(&$query)
 	{
-		$params = Factory::getApplication()->getParams('com_rw_accounts');
-		$this->noIDs = (bool) $params->get('sef_ids');
-		
-		
-		$domains = new RouterViewConfiguration('domains');
-		$this->registerView($domains);
-		
+		$segments = array();
+		$view     = null;
 
-		parent::__construct($app, $menu);
-
-		$this->attachRule(new MenuRules($this));
-
-		if ($params->get('sef_advanced', 0))
+		if (isset($query['task']))
 		{
-			$this->attachRule(new StandardRules($this));
-			$this->attachRule(new NomenuRules($this));
+			$taskParts  = explode('.', $query['task']);
+			$segments[] = implode('/', $taskParts);
+			$view       = $taskParts[0];
+			unset($query['task']);
 		}
-		else
+
+		if (isset($query['view']))
 		{
-			JLoader::register('Rw_accountsRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
-			JLoader::register('Rw_accountsHelpersRw_accounts', __DIR__ . '/helpers/rw_accounts.php');
-			$this->attachRule(new Rw_accountsRulesLegacy($this));
+			$segments[] = $query['view'];
+			$view = $query['view'];
+			
+			unset($query['view']);
 		}
+
+		if (isset($query['id']))
+		{
+			if ($view !== null)
+			{
+				$segments[] = $query['id'];
+			}
+			else
+			{
+				$segments[] = $query['id'];
+			}
+
+			unset($query['id']);
+		}
+
+		return $segments;
 	}
 
+	/**
+	 * Parse method for URLs
+	 * This method is meant to transform the human readable URL back into
+	 * query parameters. It is only executed when SEF mode is switched on.
+	 *
+	 * @param   array  &$segments  The segments of the URL to parse.
+	 *
+	 * @return  array  The URL attributes to be used by the application.
+	 *
+	 * @since   3.3
+	 */
+	public function parse(&$segments)
+	{
+		$vars = array();
 
-	
+		// View is always the first element of the array
+		$vars['view'] = array_shift($segments);
+		$model        = Rw_accountsHelpersRw_accounts::getModel($vars['view']);
 
-	
+		while (!empty($segments))
+		{
+			$segment = array_pop($segments);
+
+			// If it's the ID, let's put on the request
+			if (is_numeric($segment))
+			{
+				$vars['id'] = $segment;
+			}
+			else
+			{
+				$vars['task'] = $vars['view'] . '.' . $segment;
+			}
+		}
+
+		return $vars;
+	}
 }

@@ -76,29 +76,11 @@ class Rw_accountsModelDomains extends \Joomla\CMS\MVC\Model\ListModel
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
-		$app  = Factory::getApplication();
-            
+            $app  = JFactory::getApplication();
 		$list = $app->getUserState($this->context . '.list');
 
 		$ordering  = isset($list['filter_order'])     ? $list['filter_order']     : null;
 		$direction = isset($list['filter_order_Dir']) ? $list['filter_order_Dir'] : null;
-		if(empty($ordering)){
-		$ordering = $app->getUserStateFromRequest($this->context . '.filter_order', 'filter_order', $app->get('filter_order'));
-		if (!in_array($ordering, $this->filter_fields))
-		{
-		$ordering = 'areaname';
-		}
-		$this->setState('list.ordering', $ordering);
-		}
-		if(empty($direction))
-		{
-		$direction = $app->getUserStateFromRequest($this->context . '.filter_order_Dir', 'filter_order_Dir', $app->get('filter_order_Dir'));
-		if (!in_array(strtoupper($direction), array('ASC', 'DESC', '')))
-		{
-		$direction = 'ASC';
-		}
-		$this->setState('list.direction', $direction);
-		}
 
 		$list['limit']     = $app->getUserStateFromRequest($this->context . '.list.limit', 'limit', $app->get('list_limit'), 'uint');
 		$list['start']     = $app->input->getInt('start', 0);
@@ -111,12 +93,10 @@ class Rw_accountsModelDomains extends \Joomla\CMS\MVC\Model\ListModel
             
         // List state information.
 
-        parent::populateState($ordering, $direction);
+        parent::populateState('areaname', 'ASC');
 
         $context = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
         $this->setState('filter.search', $context);
-
-        
 
         // Split context into component and optional section
         $parts = FieldsHelper::extract($context);
@@ -164,10 +144,6 @@ class Rw_accountsModelDomains extends \Joomla\CMS\MVC\Model\ListModel
 		{
 			$query->where('a.state = 1');
 		}
-		else
-		{
-			$query->where('(a.state IN (0, 1))');
-		}
 
             // Filter by search in title
             $search = $this->getState('filter.search');
@@ -186,8 +162,6 @@ class Rw_accountsModelDomains extends \Joomla\CMS\MVC\Model\ListModel
             }
             
 
-            
-            
             // Add the list ordering clause.
             $orderCol  = $this->state->get('list.ordering', 'areaname');
             $orderDirn = $this->state->get('list.direction', 'ASC');

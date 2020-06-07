@@ -12,7 +12,6 @@ defined('JPATH_BASE') or die;
 
 use Joomla\CMS\Factory;
 use \Joomla\CMS\HTML\HTMLHelper;
-use \Joomla\CMS\Language\Text;
 
 jimport('joomla.form.formfield');
 
@@ -136,7 +135,7 @@ class JFormFieldForeignKey extends \Joomla\CMS\Form\FormField
 				// Iterate through all the results
 				foreach ($results as $result)
 				{
-					$options[] = HTMLHelper::_('select.option', $result->{$this->key_field}, Text::_($result->{$this->value_field}));
+					$options[] = HTMLHelper::_('select.option', $result->{$this->key_field}, $result->{$this->value_field});
 				}
 
 				$value = $this->value;

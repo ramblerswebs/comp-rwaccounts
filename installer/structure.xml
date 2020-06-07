@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<component>
+  <table action="add" table_name="#__rw_accounts_domains" storage_engine="" collation="utf8mb4_unicode_ci">
+    <field action="change" field_name="id" field_type="INT" field_length="11" is_autoincrement="1" description=""/>
+    <field field_name="ordering" field_type="INT" field_length="11" index="index" description=""/>
+    <field field_name="state" field_type="TINYINT" field_length="1" index="index" description=""/>
+    <field field_name="checked_out" field_type="INT" field_length="11" index="index" description=""/>
+    <field field_name="checked_out_time" field_type="DATETIME" description=""/>
+    <field field_name="created_by" field_type="INT" field_length="11" index="index" description=""/>
+    <field field_name="modified_by" field_type="INT" field_length="11" index="index" description=""/>
+    <field field_name="code" field_type="VARCHAR" field_length="4" description="Group or Area code"/>
+    <field action="change" old_name="area" new_name="areaname" field_name="areaname" field_type="VARCHAR" field_length="255" description="Name of the Area"/>
+    <field action="change" old_name="group" new_name="groupname" field_name="groupname" field_type="VARCHAR" field_length="255" description="Name of the Group"/>
+    <field field_name="domain" field_type="VARCHAR" field_length="255" description=""/>
+    <field field_name="status" field_type="VARCHAR" field_length="255" description="Status of the account/domain"/>
+    <field action="change" old_name="webmaster" new_name="web_master" field_name="web_master" field_type="VARCHAR" field_length="255" description="name of the web master"/>
+    <field action="change" field_name="user" field_type="INT" field_length="11" description="User account of Web Master"/>
+    <field action="change" field_name="notes" field_type="TEXT" description="Administrator notes"/>
+    <field field_name="latitude" field_type="DOUBLE" description="Latitude of group location"/>
+    <field field_name="longitude" field_type="DOUBLE" description="Longitude of group location"/>
+    <field field_name="created" field_type="DATETIME" description=""/>
+    <field field_name="modified" field_type="DATETIME" description=""/>
+  </table>
+</component>

@@ -24,8 +24,6 @@ class Rw_accountsModelExports extends \Joomla\CMS\MVC\Model\ListModel
         
     
         
-
-        
 	/**
 	 * Method to auto-populate the model state.
 	 *

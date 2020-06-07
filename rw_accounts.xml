@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
     <name>com_rw_accounts</name>
-    <creationDate>2020-06-07</creationDate>
+    <creationDate>2020-03-10</creationDate>
     <copyright>2020 webmaster@ramblers-webs.org.uk</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <author>webmaster@ramblers-webs.org.uk</author>
@@ -10,7 +10,7 @@
     <version>CVS: 0.0.2</version>
     <description>COM_RW_ACCOUNTS_XML_DESCRIPTION</description>
     
-    
+    <scriptfile>script.php</scriptfile>
     
     <install> <!-- Runs on install -->
         <sql>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
     <fields name="filter">
-        <field name="search" type="text" description="COM_RW_ACCOUNTS_SEARCH_FILTER_SUBMIT"
+        <field name="search" type="text" hint="COM_RW_ACCOUNTS_SEARCH_FILTER_SUBMIT"
                label="COM_USERS_FILTER_SEARCH_DESC"
                class="js-stools-search-string" />
 
@@ -22,20 +22,18 @@
 
         <field name="fullordering"
                type="list"
-               label="COM_RW_ACCOUNTS_LIST_FULL_ORDERING"
-               description="COM_RW_ACCOUNTS_LIST_FULL_ORDERING_DESC"
+               label="COM_CONTENT_LIST_FULL_ORDERING"
+               description="COM_CONTENT_LIST_FULL_ORDERING_DESC"
                onchange="this.form.submit();"
                default="a.id DESC"
         >
             <option value="">JGLOBAL_SORT_BY</option>
-            <option value="a.`ordering` ASC">COM_RW_ACCOUNTS_ORDERING_ASC</option><option value="a.`ordering` DESC">COM_RW_ACCOUNTS_ORDERING_DESC</option><option value="a.`state` ASC">COM_RW_ACCOUNTS_STATE_ASC</option><option value="a.`state` DESC">COM_RW_ACCOUNTS_STATE_DESC</option><option value="a.`code` ASC">COM_RW_ACCOUNTS_CODE_ASC</option><option value="a.`code` DESC">COM_RW_ACCOUNTS_CODE_DESC</option><option value="a.`areaname` ASC">COM_RW_ACCOUNTS_AREANAME_ASC</option><option value="a.`areaname` DESC">COM_RW_ACCOUNTS_AREANAME_DESC</option><option value="a.`groupname` ASC">COM_RW_ACCOUNTS_GROUPNAME_ASC</option><option value="a.`groupname` DESC">COM_RW_ACCOUNTS_GROUPNAME_DESC</option><option value="a.`domain` ASC">COM_RW_ACCOUNTS_DOMAIN_ASC</option><option value="a.`domain` DESC">COM_RW_ACCOUNTS_DOMAIN_DESC</option><option value="a.`status` ASC">COM_RW_ACCOUNTS_STATUS_ASC</option><option value="a.`status` DESC">COM_RW_ACCOUNTS_STATUS_DESC</option><option value="a.`web_master` ASC">COM_RW_ACCOUNTS_WEB_MASTER_ASC</option><option value="a.`web_master` DESC">COM_RW_ACCOUNTS_WEB_MASTER_DESC</option><option value="a.`created` ASC">COM_RW_ACCOUNTS_CREATED_ASC</option><option value="a.`created` DESC">COM_RW_ACCOUNTS_CREATED_DESC</option>
+            <option value="a.`ordering` ASC">Order Ascending</option><option value="a.`ordering` DESC">Order Descending</option><option value="a.`state` ASC">State Ascending</option><option value="a.`state` DESC">State Descending</option><option value="a.`code` ASC">Code Ascending</option><option value="a.`code` DESC">Code Descending</option><option value="a.`areaname` ASC">Area Ascending</option><option value="a.`areaname` DESC">Area Descending</option><option value="a.`groupname` ASC">Group Ascending</option><option value="a.`groupname` DESC">Group Descending</option><option value="a.`domain` ASC">Domain Ascending</option><option value="a.`domain` DESC">Domain Descending</option><option value="a.`status` ASC">Status Ascending</option><option value="a.`status` DESC">Status Descending</option><option value="a.`web_master` ASC">Webmaster Ascending</option><option value="a.`web_master` DESC">Webmaster Descending</option><option value="a.`created` ASC">Created Ascending</option><option value="a.`created` DESC">Created Descending</option>
 
         </field>
 
-       <field name="limit"
+        <field name="limit"
                type="limitbox"
-               label="COM_RW_ACCOUNTS_LIST_LIMIT"
-               description="COM_RW_ACCOUNTS_LIST_LIMIT_DESC"
                class="input-mini"
                default="25"
                onchange="this.form.submit();"

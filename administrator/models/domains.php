@@ -60,8 +60,6 @@ class Rw_accountsModelDomains extends \Joomla\CMS\MVC\Model\ListModel
         
     
         
-
-        
 	/**
 	 * Method to auto-populate the model state.
 	 *
@@ -161,7 +159,7 @@ class Rw_accountsModelDomains extends \Joomla\CMS\MVC\Model\ListModel
 		{
 			$query->where('a.state = ' . (int) $published);
 		}
-		elseif (empty($published))
+		elseif ($published === '')
 		{
 			$query->where('(a.state IN (0, 1))');
 		}

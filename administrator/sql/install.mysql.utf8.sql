@@ -2,9 +2,9 @@ CREATE TABLE IF NOT EXISTS `#__rw_accounts_domains` (
 `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
 
 `ordering` INT(11)  NOT NULL ,
-`state` TINYINT(1)  NOT NULL DEFAULT 1,
+`state` TINYINT(1)  NOT NULL ,
 `checked_out` INT(11)  NOT NULL ,
-`checked_out_time` DATETIME NOT NULL DEFAULT "0000-00-00 00:00:00",
+`checked_out_time` DATETIME NOT NULL ,
 `created_by` INT(11)  NOT NULL ,
 `modified_by` INT(11)  NOT NULL ,
 `code` VARCHAR(4)  NOT NULL ,
