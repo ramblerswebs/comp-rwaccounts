@@ -120,7 +120,7 @@ $wa->useStyle('com_rw_accounts.list');
                             <?php echo $item->web_master; ?>
                         </td>
                         <td>
-                        <?php echo $item->created; ?>
+                        <?php echo substr($item->created, 0, 10); ?>
                         </td>
                             <?php if ($canEdit || $canDelete): ?>
                             <td class="center">
