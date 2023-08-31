@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="3.0" method="upgrade">
+<extension type="component" version="4.0" method="upgrade">
     <name>com_rw_accounts</name>
-    <creationDate>2020-03-10</creationDate>
-    <copyright>2020 webmaster@ramblers-webs.org.uk</copyright>
+    <creationDate>2023-08-11</creationDate>
+    <copyright>2023 webmaster@ramblers-webs.org.uk</copyright>
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <author>webmaster@ramblers-webs.org.uk</author>
     <authorEmail>webmaster@ramblers-webs.org.uk</authorEmail>
     <authorUrl>http://ramblers-webs.org.uk</authorUrl>
-    <version>CVS: 0.0.2</version>
+    <version>CVS: 1.0.1</version>
     <description>COM_RW_ACCOUNTS_XML_DESCRIPTION</description>
+    <namespace path="src">Rwaccounts\Component\Rw_accounts</namespace>
     
-    <scriptfile>script.php</scriptfile>
+    
     
     <install> <!-- Runs on install -->
         <sql>
@@ -18,9 +19,9 @@
         </sql>
     </install>
     <update> <!-- Runs on update -->
-        <sql>
-            <file driver="mysql" charset="utf8">sql/update.mysql.utf8.sql</file>
-        </sql>
+        <schemas>
+            <schemapath type="mysql">sql/updates</schemapath>
+        </schemas>
     </update>
     <uninstall> <!-- Runs on uninstall -->
         <sql>
@@ -28,23 +29,21 @@
         </sql>
     </uninstall>
 
+    
+
     <files folder="site">
-        <filename>index.html</filename>
-        <filename>rw_accounts.php</filename>
-        <filename>controller.php</filename>
-        <filename>router.php</filename>
-        <folder>views</folder>
-        <folder>models</folder>
-        <folder>controllers</folder>
-        <folder>helpers</folder>
+        <folder>src</folder>
+        <folder>forms</folder>
+        <folder>tmpl</folder>
     </files>
     <media destination="com_rw_accounts" folder="media">
-        <folder>js</folder>
         <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
     </media>
     <languages folder="site/languages">
         
-			<language tag="en-GB">en-GB/en-GB.com_rw_accounts.ini</language>
+			<language tag="en-GB">en-GB/com_rw_accounts.ini</language>
     </languages>
     <administration>
         <menu>COM_RW_ACCOUNTS</menu>
@@ -52,27 +51,21 @@
             
 			<menu link="option=com_rw_accounts&amp;view=domains" view="domains" alt="Rw_accounts/Domains">COM_RW_ACCOUNTS_TITLE_DOMAINS</menu>
 
-			<menu link="option=com_rw_accounts&amp;view=exports" view="exports" alt="Rw_accounts/Exports">COM_RW_ACCOUNTS_TITLE_EXPORTS</menu>
-
         </submenu>
         <files folder="administrator">
             <filename>access.xml</filename>
             <filename>config.xml</filename>
-            <filename>controller.php</filename>
-            <filename>index.html</filename>
-            <filename>rw_accounts.php</filename>
-            <folder>controllers</folder>
-            <folder>assets</folder>
-            <folder>helpers</folder>
-            <folder>models</folder>
+            <folder>forms</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>services</folder>
+            <folder>presets</folder>
             <folder>sql</folder>
-            <folder>tables</folder>
-            <folder>views</folder>
         </files>
         <languages folder="administrator/languages">
             
-			<language tag="en-GB">en-GB/en-GB.com_rw_accounts.ini</language>
-			<language tag="en-GB">en-GB/en-GB.com_rw_accounts.sys.ini</language>
+			<language tag="en-GB">en-GB/com_rw_accounts.ini</language>
+			<language tag="en-GB">en-GB/com_rw_accounts.sys.ini</language>
         </languages>
     </administration>
     <config>
@@ -83,9 +76,12 @@
         </fields>
     </config>
     <plugins>
-        <plugin group="search" plugin="rw_accounts"/>
     </plugins>
     
+
+    <updateservers>
+        <server type="extension" priority="1" name="com_rw_accounts">https://nocdn.component-creator.com/index.php?task=builder.preupdatecheckhook&amp;option=com_combuilder&amp;component=Njk1ODQtMTkxMzEy</server>
+    </updateservers>
 </extension>
 <!-- Component built by the Joomla Component Creator -->
 <!-- http://www.component-creator.com/ -->

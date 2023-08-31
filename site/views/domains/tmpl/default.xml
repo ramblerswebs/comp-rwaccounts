@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<metadata>
-	<layout title="COM_RW_ACCOUNTS_TITLE_LIST_VIEW_DOMAINS" option="View">
-        <message>
-                        <![CDATA[COM_RW_ACCOUNTS_TITLE_LIST_VIEW_DOMAINS_DESC]]>
-        </message>
-	</layout>
-</metadata>

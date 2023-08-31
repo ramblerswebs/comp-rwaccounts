@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addfieldprefix="Rwaccounts\Component\Rw_accounts\Site\Field">
+  <fieldset>
+    <field name="id" type="text" readonly="true" class="readonly" default="0" description="JGLOBAL_FIELD_ID_DESC"/>
+    <field name="ordering"/>
+    <field name="state" default="1" type="list" label="JSTATUS" description="JFIELD_PUBLISHED_DESC" class="inputbox" size="1">
+      <option value="1">JPUBLISHED</option>
+      <option value="0">JUNPUBLISHED</option>
+      <option value="2">JARCHIVED</option>
+      <option value="-2">JTRASHED</option>
+    </field>
+    <field name="checked_out" type="hidden" filter="unset"/>
+    <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
+    <field name="code" size="6" maxlength="4" filter="safehtml" type="text" required="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CODE" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_CODE" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CODE"/>
+    <field name="areaname" filter="safehtml" type="text" readonly="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_AREANAME" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_AREANAME" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_AREANAME"/>
+    <field name="groupname" filter="safehtml" type="text" readonly="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_GROUPNAME" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_GROUPNAME" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_GROUPNAME"/>
+    <field name="domain" filter="safehtml" type="text" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_DOMAIN" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_DOMAIN" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_DOMAIN"/>
+    <field name="status" type="list" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_STATUS" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_STATUS" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_STATUS">
+      <option value="Unknown">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_UNKNOWN</option>
+      <option value="BeingRegistered">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_BEINGREGISTERED</option>
+      <option value="Tobetransferred">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_TOBETRANSFERRED</option>
+      <option value="HostedNotproduction">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_HOSTEDNOTPRODUCTION</option>
+      <option value="Hosted">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_HOSTED</option>
+      <option value="HostedDNSSet">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_HOSTEDDNSSET</option>
+      <option value="NotbeingRENEWED">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_NOTBEINGRENEWED</option>
+      <option value="DELETED">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_DELETED</option>
+    </field>
+    <field name="web_master" filter="safehtml" type="text" required="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_WEB_MASTER" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_WEB_MASTER" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_WEB_MASTER"/>
+    <field name="notes" cols="40" rows="5" filter="safehtml" type="textarea" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_NOTES" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_NOTES" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_NOTES"/>
+    <field name="latitude" filter="safehtml" type="number" readonly="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_LATITUDE" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_LATITUDE" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_LATITUDE"/>
+    <field name="longitude" filter="safehtml" type="number" readonly="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_LONGITUDE" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_LONGITUDE" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_LONGITUDE"/>
+    <field name="created" type="timecreated" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CREATED" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_CREATED" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CREATED"/>
+    <field name="modified" type="timeupdated" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_MODIFIED" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_MODIFIED" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_MODIFIED"/>
+    <field name="version_note" type="text" label="JGLOBAL_FIELD_VERSION_NOTE_LABEL" description="JGLOBAL_FIELD_VERSION_NOTE_DESC" class="inputbox" size="45" labelclass="control-label"/>
+  </fieldset>
+</form>

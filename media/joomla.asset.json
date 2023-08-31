@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_rw_accounts",
+  "version": "CVS: 1.0.1",
+  "license": "GNU General Public License version 2 or later; see LICENSE.txt",
+  "assets": [
+    {
+      "name": "com_rw_accounts.admin",
+      "type": "style",
+      "uri": "com_rw_accounts/admin.css"
+    },
+    {
+      "name": "com_rw_accounts.admin",
+      "type": "script",
+      "uri": "com_rw_accounts/admin.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+        "name": "com_rw_accounts.list",
+        "type": "style",
+        "uri": "com_rw_accounts/list.css"
+    }
+  ]
+}
