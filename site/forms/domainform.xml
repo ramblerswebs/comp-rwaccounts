@@ -11,9 +11,9 @@
     </field>
     <field name="checked_out" type="hidden" filter="unset"/>
     <field name="checked_out_time" default="0000-00-00 00:00:00" type="hidden" filter="unset"/>
-    <field name="code" size="6" maxlength="4" filter="safehtml" type="text" required="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CODE" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_CODE" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CODE"/>
-    <field name="areaname" filter="safehtml" type="text" readonly="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_AREANAME" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_AREANAME" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_AREANAME"/>
-    <field name="groupname" filter="safehtml" type="text" readonly="true" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_GROUPNAME" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_GROUPNAME" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_GROUPNAME"/>
+    <field name="code" size="6" maxlength="4" filter="safehtml" type="text"  label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CODE" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_CODE" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_CODE"/>
+    <field name="areaname" filter="safehtml" type="text"  label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_AREANAME" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_AREANAME" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_AREANAME"/>
+    <field name="groupname" filter="safehtml" type="text" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_GROUPNAME" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_GROUPNAME" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_GROUPNAME"/>
     <field name="domain" filter="safehtml" type="text" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_DOMAIN" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_DOMAIN" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_DOMAIN"/>
     <field name="status" type="list" label="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_STATUS" description="COM_RW_ACCOUNTS_FORM_DESC_DOMAIN_STATUS" hint="COM_RW_ACCOUNTS_FORM_LBL_DOMAIN_STATUS">
       <option value="Unknown">COM_RW_ACCOUNTS_DOMAINS_STATUS_OPTION_UNKNOWN</option>
