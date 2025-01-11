@@ -156,11 +156,29 @@ if (!empty($saveOrder))
 								<?php endif; ?>
 							</td>
 							<td>
-								<?php echo $item->areaname; ?>
+                                                        	<?php if (isset($item->checked_out) && $item->checked_out && ($canEdit || $canChange)) : ?>
+									<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'domains.', $canCheckin); ?>
+								<?php endif; ?>
+								<?php if ($canEdit) : ?>
+									<a href="<?php echo Route::_('index.php?option=com_rw_accounts&task=domain.edit&id='.(int) $item->id); ?>">
+									<?php echo $this->escape($item->areaname); ?>
+									</a>
+								<?php else : ?>
+												<?php echo $this->escape($item->areaname); ?>
+								<?php endif; ?>
 							</td>
 							<td>
-								<?php echo $item->groupname; ?>
-							</td>
+                                                            <?php if (isset($item->checked_out) && $item->checked_out && ($canEdit || $canChange)) : ?>
+									<?php echo HTMLHelper::_('jgrid.checkedout', $i, $item->uEditor, $item->checked_out_time, 'domains.', $canCheckin); ?>
+								<?php endif; ?>
+								<?php if ($canEdit) : ?>
+									<a href="<?php echo Route::_('index.php?option=com_rw_accounts&task=domain.edit&id='.(int) $item->id); ?>">
+									<?php echo $this->escape($item->groupname); ?>
+									</a>
+								<?php else : ?>
+												<?php echo $this->escape($item->groupname); ?>
+								<?php endif; ?>
+								</td>
 							<td>
 								<?php echo $item->domain; ?>
 							</td>
